@@ -1,6 +1,7 @@
 pipeline {
     agent any  // Runs on any available Jenkins agent
 
+    stages {
         stage('Deploy') {
             steps {
                 sh 'echo "Deploying to production server..."'
