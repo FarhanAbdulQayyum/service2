@@ -7,6 +7,14 @@ pipeline {
                 sh 'echo "Deploying to production server..."'
                 // Add deployment commands (e.g., copy build files to server)
             }
+            steps {
+                ssh ec2-user@localhost "
+                    cd ~/projects/service2 &&
+                    git pull &&
+                    node server.js
+                "
+
+            }
         }
     }
 
