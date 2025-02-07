@@ -4,10 +4,6 @@ pipeline {
     stages {
         stage('Deploy') {
             steps {
-                sh 'echo "Deploying to production server..."'
-                // Add deployment commands (e.g., copy build files to server)
-            }
-            steps {
                 sh """
                 ssh ec2-user@localhost << 'EOF'
                 cd ~/projects/service2
