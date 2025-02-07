@@ -8,12 +8,13 @@ pipeline {
                 // Add deployment commands (e.g., copy build files to server)
             }
             steps {
-                ssh ec2-user@localhost "
-                    cd ~/projects/service2 &&
-                    git pull &&
-                    node server.js
-                "
-
+                sh """
+                ssh ec2-user@localhost << 'EOF'
+                cd ~/projects/service2
+                git pull
+                node server.js
+                EOF
+                """
             }
         }
     }
