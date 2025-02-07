@@ -5,7 +5,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh """
-                ssh ec2-user@localhost << 'EOF'
+                ssh -p 22 ec2-user@localhost << 'EOF'
                 cd ~/projects/service2
                 git pull
                 node server.js
