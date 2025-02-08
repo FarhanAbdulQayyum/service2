@@ -1,5 +1,9 @@
 pipeline {
-    agent none  // Runs on any available Jenkins agent
+    agent any  // Runs on any available Jenkins agent
+
+    options {
+        skipDefaultCheckout(true)  // Prevents Jenkins from running checkout scm
+    }
 
     stages {
         stage('Deploy') {
