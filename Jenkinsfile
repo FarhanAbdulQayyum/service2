@@ -27,8 +27,6 @@ pipeline {
                 # Restart Node.js server
                 nohup node server.js > output.log 2>&1 &
                 echo "Node.js server restarted successfully!"
-
-                EOF
                 """
             }
         }
