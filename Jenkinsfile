@@ -1,5 +1,5 @@
 pipeline {
-    agent any  // Runs on any available Jenkins agent
+    agent none  // Runs on any available Jenkins agent
 
     stages {
         stage('Deploy') {
