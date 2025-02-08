@@ -8,6 +8,7 @@ pipeline {
                 ssh -tt -p 22 ec2-user@172.31.39.206 << 'EOF'
                 cd ~/projects/service2
                 git pull
+                npm i
                 node server.js
                 EOF
                 """
