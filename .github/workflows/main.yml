@@ -1,0 +1,29 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches:
+      - main  # Change to your branch if needed
+
+jobs:
+  deploy:
+    runs-on: self-hosted  # Assumes you've set up a GitHub runner on EC2
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Pull latest changes on EC2
+        run: |
+          cd ~/projects/service2  # Adjust to your project path
+          git pull origin main
+
+      - name: Install Dependencies
+        run: |
+          cd ~/projects/service2
+          npm install  # Change as needed (yarn, pnpm, etc.)
+
+      - name: Restart Node Service
+        run: |
+          pkill -f "node server.js" || true  # Stop existing process (if any)
+          nohup node ~/projects/service2/server.js > ~/projects/service2/output.log 2>&1 &  
