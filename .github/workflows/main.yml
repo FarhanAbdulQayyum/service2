@@ -16,7 +16,7 @@ jobs:
       - name: Pull latest changes on EC2
         run: |
           cd ~/projects/service2  # Adjust to your project path
-          git pull origin main
+          git pull
 
       - name: Install Dependencies
         run: |
