@@ -26,4 +26,4 @@ jobs:
       - name: Restart Node Service
         run: |
           pkill -f "node server.js" || true  # Stop existing process (if any)
-          nohup node server.js > ~/projects/service2/output.log 2>&1 &  
+          nohup node ~/projects/service2/server.js > ~/projects/service2/output.log 2>&1 &  
