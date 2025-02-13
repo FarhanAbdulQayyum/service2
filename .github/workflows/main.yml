@@ -33,4 +33,4 @@ jobs:
         run: |
          # pkill -f "node /home/ec2-user/projects/service2/server.js" || true  # Stop existing process (if any)
          # node /home/ec2-user/projects/service2/server.js
-          nohup node /home/ec2-user/projects/service2/server.js > /home/ec2-user/projects/service2/output.log 2>&1 &  
+          nohup setsid node /home/ec2-user/projects/service2/server.js > /home/ec2-user/projects/service2/output.log 2>&1 &  disown
