@@ -22,8 +22,14 @@ jobs:
         run: |
           cd ~/projects/service2
           npm install  # Change as needed (yarn, pnpm, etc.)
+      
+      - name: Debug Node Path and User
+        run: |
+          which node
+          whoami
+          env
 
       - name: Restart Node Service
         run: |
           pkill -f "node /home/ec2-user/projects/service2/server.js" || true  # Stop existing process (if any)
-          nohup node ~/projects/service2/server.js > ~/projects/service2/output.log 2>&1 &  
+          nohup node /home/ec2-user/projects/service2/server.js > /home/ec2-user/projects/service2/output.log 2>&1 &  
